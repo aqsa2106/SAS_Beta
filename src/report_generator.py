@@ -1,6 +1,8 @@
 # Modul untuk menghasilkan laporan JSON/teks
 
+
 import json
+from policy_manager import map_to_cis
 
 def generate_report(results, format="json"):
     report = {"findings": [], "cis_compliance": []}
