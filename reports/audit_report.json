@@ -1,0 +1,9 @@
+{
+  "findings": [
+    {"checkov": {"check_id": "CKV_AWS_20", "file": "s3.tf"}},
+    {"trivy": {"id": "DS002", "file": "Dockerfile"}}
+  ],
+  "cis_compliance": [
+    {"cis_id": "AWS_2.1.1", "description": "Ensure S3 bucket is not publicly accessible"}
+  ]
+}

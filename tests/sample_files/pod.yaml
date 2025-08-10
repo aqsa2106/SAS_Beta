@@ -1,0 +1,5 @@
+# Contoh Kubernetes manifest untuk pengujian
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod

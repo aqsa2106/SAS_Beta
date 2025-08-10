@@ -1,0 +1,9 @@
+# Konfigurasi alat audit dan opsi
+
+tools:
+  checkov:
+    enabled: true
+    frameworks: ["dockerfile", "kubernetes", "terraform"]
+  trivy:
+    enabled: true
+    formats: ["json"]

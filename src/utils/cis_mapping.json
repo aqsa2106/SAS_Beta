@@ -1,0 +1,8 @@
+{
+  "CKV_AWS_20": {"cis_id": "AWS_2.1.1", "description": "Ensure S3 bucket is not publicly accessible"},
+  "DS002": {"cis_id": "Docker_4.1", "description": "Ensure container user is not root"},
+
+  "docker": {"4.1": "Ensure container user is not root"},
+  "kubernetes": {"5.1.1": "Ensure resource limits are set"}
+}
+

@@ -1,0 +1,4 @@
+# Dependensi Python
+checkov
+pyyaml
+pytest
