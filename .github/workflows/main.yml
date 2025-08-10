@@ -1,4 +1,5 @@
 # Konfigurasi GitHub Actions untuk CI/CD
+
 name: IaC Security Audit
 on: [push, pull_request]
 jobs:
@@ -6,10 +7,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install Tools
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+      - name: Install Checkov (CLI)
+        run: pip install checkov
+      - name: Install Trivy
         run: |
-          pip install -r requirements.txt
-          curl -sSL https://get.snyk.io | bash
+          sudo apt-get update
+          sudo apt-get install -y wget apt-transport-https gnupg lsb-release
+          wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+          echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee /etc/apt/sources.list.d/trivy.list
+          sudo apt-get update
+          sudo apt-get install -y trivy
+      # Uncomment if you actually use snyk in your audit script
+      # - name: Install Snyk
+      #   run: npm install -g snyk
       - name: Run Audit
         run: python src/audit_iac.py --path tests/sample_files --format json > reports/audit_report.json
       - name: Upload Report
