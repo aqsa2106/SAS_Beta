@@ -1,7 +1,6 @@
 # Konfigurasi GitHub Actions untuk CI/CD
-
 name: IaC Security Audit
-on: [pull_request]
+on: [push, pull_request]
 jobs:
   audit:
     runs-on: ubuntu-latest
