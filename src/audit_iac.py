@@ -3,6 +3,7 @@ import argparse
 from input_parser import parse_input
 from audit_engine import run_audit
 from report_generator import generate_report
+import os
 
 def main():
     parser = argparse.ArgumentParser(description="IaC and Container Security Audit")
